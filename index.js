@@ -1,4 +1,5 @@
-const express = require('express')
+import express from 'express'
+import { parse } from './services/parser.js'
 const app = express()
 const port = 3000
 
@@ -10,10 +11,12 @@ app.set('view engine', 'ejs')
 
 /*--------------------------------- */
 
-app.get('/', (req, res) => {
-  res.render('index')
+app.get('/', async (req, res) => {
+  res.render('index', {
+    feed: await parse()
+  })
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`RSS app listening on port ${port}`)
 })
