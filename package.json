@@ -3,6 +3,7 @@
     "start": "nodemon index.js"
   },
   "dependencies": {
+    "ejs": "^5.0.1",
     "express": "^4.22.1"
   },
   "devDependencies": {
